@@ -1,0 +1,50 @@
+:root{
+    --light :#ec19ff;
+    --dark : #4b1182;
+}
+.highscore{
+    display:flex;
+    justify-content: center;
+    font-size: 40px;
+}
+.highscore-form{
+    display:flex;
+justify-content: center;
+}
+.highscore-form{
+    display:flex;
+justify-content: center;
+}
+.highscore-form input{
+    background-color: var(--dark);
+    opacity: 25%;
+    width: 600px;
+    height: 50px;
+    font-size: 30px;
+
+}
+
+
+body {
+    padding:0;
+    margin:0;
+}
+header {
+    font-size : 25px;
+    display: flex;
+    margin:20px;
+    justify-content: space-between;
+
+
+}
+
+
+header a {
+
+color :var(--light);
+text-decoration:none;
+}
+
+header p{
+    margin:0;
+}
