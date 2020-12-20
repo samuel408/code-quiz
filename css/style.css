@@ -11,7 +11,9 @@ button{
     color:white;
     outline:none;
     border-radius: 10px;
-    
+    height: 75px;
+    width: 200px;
+    font-size: 25px;
 }
 button:hover{
     background-color: var(--light);
@@ -23,6 +25,8 @@ body {
 
     
 }
+/* dom button */
+
 header {
     font-size : 25px;
     display: flex;
@@ -96,6 +100,9 @@ header a {
 color :var(--light);
 text-decoration:none;
 }
+#question{
+    margin-top:0 ;
+}
 
 header p{
     margin:0;
@@ -115,3 +122,27 @@ font-size: 40px
     font-size:25px;
 }
 
+.buttons{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    }
+    .btnstyle{
+ margin-right: 800px;
+ margin-bottom: 20px;
+ width:300px;
+ display:flex;
+ justify-content:start;
+ font-size:40px
+    }
+/* regular letters are too big to fit in the buttons so we need to create
+smaller fonts for certain buttons.
+ */
+ .smallerFont{
+    margin-right: 800px;
+    margin-bottom: 20px;
+    width:300px;
+    display:flex;
+    justify-content:start;
+    font-size:32px
+ }
