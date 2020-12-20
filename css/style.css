@@ -1,9 +1,46 @@
 /* universal */
+
 :root{
     --light :#e17dff;
     --dark : #4b1182;
     font-family: Arial, Helvetica, sans-serif;
 
+}
+button{
+    background-color: var(--dark);
+    color:white;
+    outline:none;
+    border-radius: 10px;
+    
+}
+button:hover{
+    background-color: var(--light);
+
+}
+body {
+    padding:0;
+    margin:0;
+
+    
+}
+header {
+    font-size : 25px;
+    display: flex;
+    margin:20px;
+    justify-content: space-between;
+
+
+}
+
+section {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+
+.center{
+    display:flex;
+    justify-content: center;
 }
 /* high score page */
 .highscore{
@@ -53,33 +90,6 @@ justify-content: center;
 }
 /* high score pages */
 
-/* unviersal */
-button{
-    background-color: var(--dark);
-    color:white;
-    outline:none;
-    border-radius: 10px;
-    
-}
-button:hover{
-    background-color: var(--light);
-
-}
-body {
-    padding:0;
-    margin:0;
-
-    
-}
-header {
-    font-size : 25px;
-    display: flex;
-    margin:20px;
-    justify-content: space-between;
-
-
-}
-
 
 header a {
 
@@ -90,3 +100,18 @@ text-decoration:none;
 header p{
     margin:0;
 }
+.initial-text {
+    font-size: 30px;
+    margin-top: 100px;
+
+}
+.initial-text p {
+margin:0 300px 20px 300px;
+font-size: 40px
+}
+.start-btn{
+    height: 50px;
+    width: 150px;
+    font-size:25px;
+}
+
