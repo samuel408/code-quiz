@@ -1,18 +1,25 @@
 //universal variables
-var clear = function(){
-    document.getElementById("main").innerHTML ="";
-}
+
 //timer and quiz start
 
+var seconds =75;
+// takes 15 seconds off the clock when answer is wrong 
+function penalty(){
+    var penalty = 15;
+seconds = seconds - penalty;
+    document.getElementById("timer").innerHTML ="timer: " + --seconds;
+
+}
 function quizStart(){
     var timer = setInterval(clock, 1000)
-    var seconds =75;
     question1();
     function clock () {
         document.getElementById("timer").innerHTML ="timer: " +  --seconds;
-        if (seconds === 0){
+        if (seconds === 0 || seconds < 0){
+            document.getElementById("timer").innerHTML ="timer:0 " ;
             clearInterval(timer)
             window.alert("Time is up!");
+
         }
     }
     
@@ -94,12 +101,16 @@ function question1(){
 
     answer1.addEventListener("click",question2);
     answer1.addEventListener("click",wrong);
+    answer1.addEventListener("click",penalty);
     answer2.addEventListener("click",question2);
     answer2.addEventListener("click",wrong);
+    answer2.addEventListener("click",penalty);
     answer3.addEventListener("click",question2);
     answer3.addEventListener("click",correct);
     answer4.addEventListener("click",question2);
     answer4.addEventListener("click",wrong);
+    answer4.addEventListener("click",penalty);
+
 }
 
 
@@ -174,12 +185,15 @@ function question2(){
 
     answer1.addEventListener("click",question3);
     answer1.addEventListener("click",wrong);
+    answer1.addEventListener("click",penalty);
     answer2.addEventListener("click",question3);
     answer2.addEventListener("click",wrong);
+    answer2.addEventListener("click",penalty);
     answer3.addEventListener("click",question3);
     answer3.addEventListener("click",correct);
     answer4.addEventListener("click",question3);
     answer4.addEventListener("click",wrong);
+    answer4.addEventListener("click",penalty);
 }
 function question3(){
         document.getElementById("question").innerHTML = key[2].q;
@@ -250,10 +264,13 @@ function question3(){
     // when clicked the eventlisteners trigger certain functions
         answer1.addEventListener("click",question4);
         answer1.addEventListener("click",wrong);
+        answer1.addEventListener("click",penalty);
         answer2.addEventListener("click",question4);
         answer2.addEventListener("click",wrong);
+        answer2.addEventListener("click",penalty);
         answer3.addEventListener("click",question4);
         answer3.addEventListener("click",wrong);
+        answer3.addEventListener("click",penalty);
         answer4.addEventListener("click",question4);
         answer4.addEventListener("click",correct);
 }
@@ -326,12 +343,15 @@ function question4(){
 // when clicked the eventlisteners trigger certain functions
     answer1.addEventListener("click",question5);
     answer1.addEventListener("click",wrong);
+    answer1.addEventListener("click",penalty);
     answer2.addEventListener("click",question5);
     answer2.addEventListener("click",wrong);
+    answer2.addEventListener("click",penalty);
     answer3.addEventListener("click",question5);
     answer3.addEventListener("click",correct);
     answer4.addEventListener("click",question5);
     answer4.addEventListener("click",wrong);
+    answer4.addEventListener("click",penalty);
 }
 function question5(){
    document.getElementById("question").innerHTML = key[4].q;
@@ -402,10 +422,13 @@ function question5(){
 // when clicked the eventlisteners trigger certain functions
     answer1.addEventListener("click",next);
     answer1.addEventListener("click",wrong);
+    answer1.addEventListener("click",penalty);
     answer2.addEventListener("click",next);
     answer2.addEventListener("click",wrong);
+    answer2.addEventListener("click",penalty);
     answer3.addEventListener("click",next);
     answer3.addEventListener("click",wrong);
+    answer3.addEventListener("click",penalty);
     answer4.addEventListener("click",next);
     answer4.addEventListener("click",correct);
 }
