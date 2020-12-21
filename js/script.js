@@ -1,8 +1,11 @@
 //universal variables
 
 //timer and quiz start
-
+var end = false;
 var seconds =75;
+
+//array the stores score.
+var score = [];
 // takes 15 seconds off the clock when answer is wrong 
 function penalty(){
     var penalty = 15;
@@ -11,20 +14,31 @@ seconds = seconds - penalty;
 
 }
 function quizStart(){
-    var timer = setInterval(clock, 1000)
+    var timer = setInterval(clock, 1000);
     question1();
     function clock () {
         document.getElementById("timer").innerHTML ="timer: " +  --seconds;
-        if (seconds === 0 || seconds < 0){
-            document.getElementById("timer").innerHTML ="timer:0 " ;
+        if (end === true){
             clearInterval(timer)
-            window.alert("Time is up!");
-
+            score[0] = seconds;
+          
         }
-    }
-    
-}
+        
+        console.log(score, "first");
 
+        if (seconds === 0 || seconds < 0){
+            
+            document.getElementById("timer").innerHTML ="timer:0 " ;
+            clearInterval(timer);
+            window.alert("Time is up!");
+            quizEnd();
+        }
+        
+    }
+    var finalScore = score[0];
+    return finalScore;
+}
+console.log(score,"second")
 //end of timer and quiz start 
 
 //start of question pop ups
@@ -420,21 +434,54 @@ function question5(){
         
     }
 // when clicked the eventlisteners trigger certain functions
-    answer1.addEventListener("click",next);
-    answer1.addEventListener("click",wrong);
+   answer1.addEventListener("click",wrong);
     answer1.addEventListener("click",penalty);
-    answer2.addEventListener("click",next);
+    answer1.addEventListener("click",quizEnd);
     answer2.addEventListener("click",wrong);
     answer2.addEventListener("click",penalty);
-    answer3.addEventListener("click",next);
+    answer2.addEventListener("click",quizEnd);
+
     answer3.addEventListener("click",wrong);
     answer3.addEventListener("click",penalty);
-    answer4.addEventListener("click",next);
+    answer3.addEventListener("click",quizEnd);
+
     answer4.addEventListener("click",correct);
+    answer4.addEventListener("click",quizEnd);
 }
-//filler function 
-function next(){
-console.log("works")
+//quiz end 
+function quizEnd(){
+
+    end = true;
+    // var finalscore = score[0];
+    document.getElementById("buttonSection").remove();
+    document.getElementById('area').remove();
+
+    document.getElementById("question").innerHTML = "All Done !";
+    var text= document.createElement("p");
+    text.innerHTML = "Your final score is " + score[0];
+    text.setAttribute('style','margin-left: 500px; font-size:50px;');
+    var section = document.createElement("div");
+    var text1 = document.createElement("p");
+    var form = document.createElement("input");
+    var btn = document.createElement("button");
+    // btn.classList.add("btnstyle");
+    section.setAttribute('style', 'display:flex; justify-content:center; align-items:center;')
+    text1.setAttribute('style', "padding:0;")
+    text1.innerHTML= "Enter initials: ";
+    form.setAttribute('style', 'font-size:20px; width: 25%; height:25%;')
+    text1.setAttribute('style', ' font-size:50px;');
+
+    btn.innerHTML = "Submit"
+
+document.body.appendChild(text)
+    document.body.appendChild(section);
+    section.appendChild(text1);
+    section.appendChild(form);
+    section.appendChild(btn);
+
+    
+
+
 }
 //end of questions
 //query selectors
