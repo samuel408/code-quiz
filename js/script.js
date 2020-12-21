@@ -515,23 +515,38 @@ var theScores = document.querySelector("#view");
 
  function view(){
 document.getElementById('body').innerHTML="";
+body.setAttribute('style', ';margin-left:40%; justify-content:center ; margin-top:15%;')
 var div = document.createElement("div");
 var h1 = document.createElement("h1");
 var scores = document.createElement("p");
+scores.setAttribute('id', 'total');
 var btnRefresh = document.createElement("BUTTON");
+btnRefresh.setAttribute('id', 'refresh');
 var btnClear = document.createElement("BUTTON");
+btnClear.setAttribute('id', 'clear')
 h1.innerHTML = "High Scores"
 scores.innerHTML = initials + " - " + score;
 btnRefresh.innerHTML = "Go Back";
 btnClear.innerHTML = "Clear"
-
 
 document.body.appendChild(div);
 body.appendChild(h1);
 body.appendChild(scores)
 body.appendChild(btnRefresh);
 body.appendChild(btnClear);
+var goBack = document.querySelector("#refresh");
+var clear = document.querySelector("#clear")
+function reload() {
+    location.reload();
+}
+function clearscores() {
+    document.getElementById('total').innerHTML="";
+}
+
+goBack.addEventListener("click",reload)
+clear.addEventListener("click", clearscores)
  }
+ 
 //end of questions
 //query selectors
 
