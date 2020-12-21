@@ -3,9 +3,14 @@
 //timer and quiz start
 var end = false;
 var seconds =75;
+var finalInitials = [];
+var scoresFinal = [];
 
 //array the stores score.
-var score = [];
+var score =0;
+function addScore(){
+    score += 20;
+}
 // takes 15 seconds off the clock when answer is wrong 
 function penalty(){
     var penalty = 15;
@@ -121,6 +126,7 @@ function question1(){
     answer2.addEventListener("click",penalty);
     answer3.addEventListener("click",question2);
     answer3.addEventListener("click",correct);
+    answer3.addEventListener("click",addScore)
     answer4.addEventListener("click",question2);
     answer4.addEventListener("click",wrong);
     answer4.addEventListener("click",penalty);
@@ -205,6 +211,7 @@ function question2(){
     answer2.addEventListener("click",penalty);
     answer3.addEventListener("click",question3);
     answer3.addEventListener("click",correct);
+    answer3.addEventListener("click",addScore)
     answer4.addEventListener("click",question3);
     answer4.addEventListener("click",wrong);
     answer4.addEventListener("click",penalty);
@@ -287,6 +294,8 @@ function question3(){
         answer3.addEventListener("click",penalty);
         answer4.addEventListener("click",question4);
         answer4.addEventListener("click",correct);
+        answer4.addEventListener("click",addScore)
+
 }
 function question4(){
     document.getElementById("question").innerHTML = key[3].q;
@@ -363,6 +372,7 @@ function question4(){
     answer2.addEventListener("click",penalty);
     answer3.addEventListener("click",question5);
     answer3.addEventListener("click",correct);
+    answer3.addEventListener("click",addScore);
     answer4.addEventListener("click",question5);
     answer4.addEventListener("click",wrong);
     answer4.addEventListener("click",penalty);
@@ -440,15 +450,16 @@ function question5(){
     answer2.addEventListener("click",wrong);
     answer2.addEventListener("click",penalty);
     answer2.addEventListener("click",quizEnd);
-
     answer3.addEventListener("click",wrong);
     answer3.addEventListener("click",penalty);
     answer3.addEventListener("click",quizEnd);
-
+    answer4.addEventListener("click",addScore);
     answer4.addEventListener("click",correct);
     answer4.addEventListener("click",quizEnd);
+
 }
 //quiz end 
+var initials  = null;
 function quizEnd(){
 
     end = true;
@@ -458,7 +469,7 @@ function quizEnd(){
 
     document.getElementById("question").innerHTML = "All Done !";
     var text= document.createElement("p");
-    text.innerHTML = "Your final score is " + score[0];
+    text.innerHTML = "Your final score is " + score + "/100." ;
     text.setAttribute('style','margin-left: 500px; font-size:50px;');
     var section = document.createElement("div");
     var text1 = document.createElement("p");
@@ -472,12 +483,28 @@ function quizEnd(){
     text1.setAttribute('style', ' font-size:50px;');
 
     btn.innerHTML = "Submit"
+    btn.setAttribute('id', 'submit')
+    form.setAttribute('id', 'form')
+
+    
 
 document.body.appendChild(text)
     document.body.appendChild(section);
     section.appendChild(text1);
     section.appendChild(form);
     section.appendChild(btn);
+
+    function save(){
+        var initial = document.getElementById('form').value;
+        initials=initial;
+        finalInitials = initials;
+        scoresFinal = score;
+        // document.getElementById("savedScore").innerHTML = initials + " - " + score;
+
+    }
+
+     var enter = document.querySelector("#submit");
+     enter.addEventListener("click",save);
 
     
 
