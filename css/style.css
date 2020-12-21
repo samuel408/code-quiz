@@ -95,7 +95,7 @@ justify-content: center;
 /* high score pages */
 
 
-header a {
+header p{
 
 color :var(--light);
 text-decoration:none;

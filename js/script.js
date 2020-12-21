@@ -510,6 +510,28 @@ document.body.appendChild(text)
 
 
 }
+var theScores = document.querySelector("#view");
+
+
+ function view(){
+document.getElementById('body').innerHTML="";
+var div = document.createElement("div");
+var h1 = document.createElement("h1");
+var scores = document.createElement("p");
+var btnRefresh = document.createElement("BUTTON");
+var btnClear = document.createElement("BUTTON");
+h1.innerHTML = "High Scores"
+scores.innerHTML = initials + " - " + score;
+btnRefresh.innerHTML = "Go Back";
+btnClear.innerHTML = "Clear"
+
+
+document.body.appendChild(div);
+body.appendChild(h1);
+body.appendChild(scores)
+body.appendChild(btnRefresh);
+body.appendChild(btnClear);
+ }
 //end of questions
 //query selectors
 
@@ -517,3 +539,4 @@ var startEL = document.querySelector('#start')
 //end of query selectors.
 //event listners
 startEL.addEventListener("click",quizStart);
+theScores.addEventListener("click",view)
