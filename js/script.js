@@ -3,8 +3,9 @@
 //timer and quiz start
 var end = false;
 var seconds =75;
-var finalInitials = [];
-var scoresFinal = [];
+var scoresObject = {
+
+}
 
 //array the stores score.
 var score =0;
@@ -29,7 +30,6 @@ function quizStart(){
           
         }
         
-        console.log(score, "first");
 
         if (seconds === 0 || seconds < 0){
             
@@ -43,7 +43,6 @@ function quizStart(){
     var finalScore = score[0];
     return finalScore;
 }
-console.log(score,"second")
 //end of timer and quiz start 
 
 //start of question pop ups
@@ -493,14 +492,11 @@ document.body.appendChild(text)
     section.appendChild(text1);
     section.appendChild(form);
     section.appendChild(btn);
-
+// save score and initials to an array 
     function save(){
         var initial = document.getElementById('form').value;
         initials=initial;
-        finalInitials = initials;
-        scoresFinal = score;
-        // document.getElementById("savedScore").innerHTML = initials + " - " + score;
-
+       localStorage.setItem(initials, score);
     }
 
      var enter = document.querySelector("#submit");
@@ -511,6 +507,7 @@ document.body.appendChild(text)
 
 }
 var theScores = document.querySelector("#view");
+
 
 
  function view(){
@@ -525,7 +522,7 @@ btnRefresh.setAttribute('id', 'refresh');
 var btnClear = document.createElement("BUTTON");
 btnClear.setAttribute('id', 'clear')
 h1.innerHTML = "High Scores"
-scores.innerHTML = initials + " - " + score;
+// scores.innerHTML = initials + " - " + score;
 btnRefresh.innerHTML = "Go Back";
 btnClear.innerHTML = "Clear"
 
@@ -536,11 +533,16 @@ body.appendChild(btnRefresh);
 body.appendChild(btnClear);
 var goBack = document.querySelector("#refresh");
 var clear = document.querySelector("#clear")
+for (i = 0; i < localStorage.length; i++) {
+    x = localStorage.key(i);
+    document.getElementById("total").innerHTML +=  x + " - " +score+"</br>";
+  }
 function reload() {
     location.reload();
 }
 function clearscores() {
     document.getElementById('total').innerHTML="";
+    localStorage.clear();
 }
 
 goBack.addEventListener("click",reload)
