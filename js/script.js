@@ -3,9 +3,6 @@
 //timer and quiz start
 var end = false;
 var seconds =75;
-var scoresObject = {
-
-}
 
 //array the stores score.
 var score =0;
